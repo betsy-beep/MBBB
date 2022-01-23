@@ -1,0 +1,123 @@
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ background-color: #99CCFF;
+ background-position: center;
+ background-size: cover;
+}
+
+* {box-sizing: border-box;}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  margin: auto;
+  
+}
+
+.glass {
+  margin-top: 50px;
+  margin-left: 25px
+  background: white;
+  min-height: 80vh;
+  width: 38%;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3));
+  border:1px solid black;
+  border-radius: 2rem;
+  z-index: 2;
+  backdrop-filter: blur(2rem);
+}
+
+h2 {text-align:center; margin-top: 20px;}
+
+.input-container {
+  display: -ms-flexbox;
+  display:flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 25px;
+}
+
+
+i {
+  padding: 10px;
+  background: black;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.fi-rr-user {
+ padding: 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+#state {
+  background-color: black;
+margin: auto;
+justify-content: center;
+color: white;
+padding: 15px 20px;
+border: none;
+cursor: pointer;
+width: 50%;
+opacity: 0.8;
+border-radius: 2rem;
+text-align: : center;
+
+}
+
+#user {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
+
+/* Set a style for the submit button */
+button {
+background-color: black;
+margin-top: 25px;
+margin: auto;
+justify-content: center;
+color: white;
+padding: 15px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.8;
+border-radius: 2rem;
+text-align: : center;
+}
+
+button:hover {
+opacity: 1;
+}
+
+.clearButton {
+margin-top: 15px;
+}
+
+.registerButton {
+  margin-top: 15px;
+}
+
+
+.error {color: #FF0000;}

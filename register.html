@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <script src="js/register.js"></script>
+    <title>Registration</title>
+</head>    
+<body>
+
+    <main>
+    <section class="glass"> <!-----glass for the form background----> 
+    
+    <form  name="myform" id="myform"  style="max-width:500px; margin:auto;" onSubmit="return validateRegister()" method="POST" autocomplete="on" action="">
+
+    
+    <h2><span class="fi-rr-user"></span>User Registration Form</h2>
+
+<!--------------------------------------------------------USERNAME--------------------------------->    
+<div class="input-container">
+    <i class="fi-rr-portrait"></i>
+    <input class="input-field" type="text" id="uname" placeholder="username" name="uname">
+</div>
+
+
+<!-------------------------------------------------firstname & lastname------------------------------------------>
+<div class="input-container">
+    <i class="fi-rr-portrait"></i>
+    <input class="input-field" type="text" id="fname" placeholder="Firstname" name="fname">
+    <input class="input-field" type="text" id="lname" placeholder="Lastname" name="lname">
+</div>
+
+<!-------------------------------------------------email--------------------------------------------------------->
+<div class="input-container">
+    <i class="fi-rr-envelope"></i>
+    <input class="input-field" type="text" id="email" placeholder="abcd40@gmail.com" name="email">
+</div>
+
+
+<!------------------------------------------------phone no-------------------------------------------------------->
+<div class="input-container">
+    <i class="fi-rr-smartphone"></i>
+    <select placeholder="+60" class="phoneNo">
+    <option value="+60">+60</option>
+   <input type="tel" id="phoneNo" name="phoneNo" placeholder="112345674">
+</div>
+
+<!------------------------------------------------password-------------------------------------------------------->
+<div class="input-container">
+    <i class="fi-rr-key"></i>
+    <input class="input-field" type="password" placeholder="Password"  id="psw" name="psw">
+    <input class="input-field" type="password" placeholder="Confirm Password" id="cpsw" name="cpsw" >
+</div>
+
+<!----------------------------------------------radio button:user---------------------------------------------------->
+<div class="user">
+    <label>Are you a:</label>
+    <input class="user" type="radio" value="None" id="staff" name="user" />
+    <label for="staff" class="radio" chec>Staff</label>
+    <input class="user" type="radio" value="None" id="student" name="user" />
+    <label for="student" class="radio">Student</label>
+    <input class="user" type="radio" value="None" id="guest" name="user" />
+    <label for="guest" class="radio">Guest</label>
+</div>
+
+
+
+<!------------------------------------------------button:register & clear----------------------------------------------------->
+ <button type="submit" class="registerButton" name="registerButton">Register</button>
+  <button type="reset" class="clearButton" name="clearButton">Clear
+</button>
+<p class="forgot" align="center">already have account?<a href="login.html">click here</a> to login</p>
+    </form>
+    </section>
+    </main>
+</body>
+</html>

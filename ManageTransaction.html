@@ -1,0 +1,270 @@
+
+<link rel="icon" type="image/ico" href="img/anclogo.ico" />
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Admin - Manage Transactions Record
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/admin_transactions.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Autour One">
+        <script src="anime/anime.min.js"></script>
+        <script type="text/javascript" src="admin_transactions.js"></script>
+    </head>
+    <body>
+        <div id="bg"><div id="bg-overlay"></div></div>
+        <div id="content">
+            <div id="create-transaction-modal-bg">
+                <div id="create-transaction-modal">
+                    <button id="create-transaction-modal-button">Okay</button>
+                </div>
+            </div>
+            <div id="view-transaction-modal-bg">
+                <div id="view-transaction-modal">
+                    <button id="view-transaction-modal-button">Continue</button>
+                </div>
+            </div>
+            <div id="delete-transaction-modal-bg">
+                <div id="delete-transaction-modal">
+                    <table id="delete-transaction-table">
+
+                    </table>
+                    <div class="field-column" id="delete-modal-buttons">
+                        <button id="delete-transaction-modal-button">Confirm Delete</button>
+                        <button id="not-delete-transaction-modal-button">Cancel</button>
+                    </div>
+                    <button id="not-found-delete-button">Okay</button>
+                </div>
+            </div>
+            <div id="admin-page-header">
+                <h1>Admin (Manage Transaction Record)</h1>
+            </div>
+            <div id="admin-action">
+                <div class="action" onClick="location.href = 'admin_panel.php'">
+                    <p><b>Back</b></p>
+                </div>
+                <div class="action" id="create-transactions" onClick="selectThisForm(this, getElementById('form-create-transactions'))">
+                    <p><b>Create Transactions</b></p>
+                </div>
+                <div class="action" id="view-transactions" onClick="selectThisForm(this, getElementById('form-view-transactions'))">
+                    <p><b>View Transaction Record</b></p>
+                </div>
+                <div class="action" id="delete-transactions" onClick="selectThisForm(this, getElementById('form-delete-transactions'))">
+                    <p><b>Delete Transaction</b></p>
+                </div>
+                <div class="action" id="update-transactions" onClick="selectThisForm(this, getElementById('form-update-transactions'))">
+                    <p><b>Update Transaction Record</b></p>
+                </div>
+            </div>
+            <div id="forms">
+                <div id="form-create-transactions">
+                    <p><b>Create Transaction</b></p>
+                    <form autocomplete="off" onSubmit="return registerTransactions()" method="post" id="create-transactions-form">
+                        <div class="field-row">
+                            <img src="image/online-meeting.png" width="8%" height="auto">
+                            <input placeholder="Booking ID" type="number" name="booking-id" id="create-transaction-bookingid" required>
+                        </div>
+                        <div class="field-row">
+                            <img src="image/schedule.png" width="8%" height="auto">
+                            <input placeholder="Booking date" type="date" name="booking-date" id="create-transaction-date" required>
+                        </div>
+						<div class="field-row">
+                            <img src="image/clock.png" width="8%" height="auto">
+                            <select id="create-transaction-time">
+                                <option value="">Booking time...</option>
+                                <option value="07:00">07:00</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+								<option value="11:00">11:00</option>
+								<option value="12:00">12:00</option>
+								<option value="13:00">13:00</option>
+								<option value="14:00">14:00</option>
+								<option value="15:00">15:00</option>
+								<option value="16:00">16:00</option>
+								<option value="17:00">17:00</option>
+								<option value="18:00">18:00</option>
+								<option value="19:00">19:00</option>
+								<option value="20:00">20:00</option>
+								<option value="21:00">21:00</option>
+                                <option value="Any_available_room">Any available time</option>
+                            </select>
+                        </div>
+						<div class="field-row">
+                            <img src="image/24-hours.png" width="8%" height="auto">
+                            <select id="create-transaction-hour">
+                                <option value="">Booking hour...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+								<option value="5">5</option>
+								<option value="unlimited hrs">unlimited</option>
+								
+                            </select>
+                        
+                            <input placeholder="Description" type="text" name="desc" id="create-transaction-desc">
+                            <button type="button" id="add-item" onClick="addRow('ordered-time-table','row-prototype','create-transaction-desc','create-transaction-hour')">Add</button>
+                        </div>
+                        <div class="field-row">
+                            <table id="ordered-time-table">
+                                <tr id="table-headers">
+                                    <td>
+                                        <b>Booking time</b>
+                                    </td>
+                                    <td>
+                                        <b>Payment ID</b>
+                                    </td>
+                                    <td>
+                                        <b>Hour(s)</b>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr id="row-prototype">
+                                    <td style="text-align: left;">
+                                        <b>Booking time</b>
+                                    </td>
+                                    <td style="text-align: center; font-style: italic;">
+                                        <b>Payment ID</b>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <b>Hour(s)</b>
+                                    </td>
+                                    <td class="remove-row-button" onClick="removeRow(this)">
+                                        Remove
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="field-column">
+                            <button id='create-transaction-button'>Create Transaction</button>
+                            <button type="button" style="margin-top: 20px;" onClick="removeAllRows('ordered-time-table','ordered-time-table','transaction-desc','create-transaction-hour')">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="form-view-transactions">
+                    <p><b>View Transaction</b></p>
+                    <form autocomplete="off" onSubmit="return viewTransactions('view-transaction-id','view-transaction-modal','view-transaction-modal-bg')">
+                        <div class="field-row">
+                            <img src="image/process.png" width="8%" height="auto">
+                            <input placeholder="Transaction ID" type="number" name="transaction-id" id="view-transaction-id" required>
+                        </div>
+                        <div class="field-column">
+                            <button>View Transaction</button>
+                            <button type="reset" style="margin-top: 20px;">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="form-delete-transactions">
+                    <p><b>Delete Transaction</b></p>
+                    <form autocomplete="off" onSubmit="return viewTransactions('delete-transaction-id','delete-transaction-modal','delete-transaction-modal-bg')">
+                        <div class="field-row">
+                            <img src="image/process.png" width="8%" height="auto">
+                            <input placeholder="Transaction ID" type="number" name="transaction-id" id="delete-transaction-id" required>
+                        </div>
+                        <div class="field-column">
+                            <button>Delete Transaction</button>
+                            <button type="reset" style="margin-top: 20px;">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="form-update-transactions">
+                    <p><b>Update Transaction</b></p>
+                    <form autocomplete="off" onSubmit="return retrieveInfo()" id="search-update-transaction">
+                        <div class="field-row">
+                            <img src="image/process.png" width="8%" height="auto">
+                            <input placeholder="Transaction ID" type="number" name="transaction-id" id="search-update-transaction-id" required>
+                        </div>
+                        <div class="field-column">
+                            <button>Update Item</button>
+                            <button type="reset" style="margin-top: 20px;">Clear Form</button>
+                        </div>
+                    </form>
+                    <form autocomplete="off" onSubmit="return updateTransactions()" method="post" id="update-form">
+                        <div class="field-row">
+                            <img src="image/online-meeting.png" width="8%" height="auto">
+                            <input value="1234" placeholder="Booking ID" type="number" name="booking-id" id="update-transaction-bookingid" disabled>
+                        </div>
+                        <div class="field-row">
+                            <img src="image/schedule.png" width="8%" height="auto">
+                            <input value="2021-01-02" placeholder="Booking date" type="date" name="booking-date" id="update-transaction-date" disabled>
+                        </div>
+						<div class="field-row">
+                            <img src="image/clock.png" width="8%" height="auto">
+                            <select id="update-transaction-time">
+                                <option value="">Booking time...</option>
+                                <option value="07:00">07:00</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+								<option value="11:00">11:00</option>
+								<option value="12:00">12:00</option>
+								<option value="13:00">13:00</option>
+								<option value="14:00">14:00</option>
+								<option value="15:00">15:00</option>
+								<option value="16:00">16:00</option>
+								<option value="17:00">17:00</option>
+								<option value="18:00">18:00</option>
+								<option value="19:00">19:00</option>
+								<option value="20:00">20:00</option>
+								<option value="21:00">21:00</option>
+                                <option value="Any_available_room">Any available time</option>
+                            </select>
+                        </div>
+						
+                        <div class="field-row">
+                            <img src="image/24-hours.png" width="8%" height="auto">
+                            <select id="update-transaction-hour">
+                                <option value="">Booking hour...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+								<option value="5">5</option>
+								<option value="unlimited hrs">unlimited</option>
+								
+                            </select>
+                            <input placeholder="Description" type="text" name="desc" id="update-transaction-desc">
+                            <button type="button" id="add-item" onClick="addRow('update-ordered-time-table','update-row-prototype','update-transaction-desc','update-transaction-hour')">Add</button>
+                        </div>
+                        <div class="field-row">
+                            <table id="update-ordered-time-table">
+                                <tr id="update-table-headers">
+                                    <td>
+                                        <b>Booking time</b>
+                                    </td>
+                                    <td>
+                                        <b>Payment ID</b>
+                                    </td>
+                                    <td>
+                                        <b>Hour(s)</b>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr id="update-row-prototype">
+                                    <td style="text-align: left;">
+                                        <b>Booking time</b>
+                                    </td>
+                                    <td style="text-align: center; font-style: italic;">
+                                        <b>Payment ID</b>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <b>Hour(s)</b>
+                                    </td>
+                                    <td class="remove-row-button" onClick="removeRow(this)">
+                                        Remove
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="field-column">
+                            <button>Update Transaction</button>
+                            <button type="button" style="margin-top: 20px;" id="cancel-update">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

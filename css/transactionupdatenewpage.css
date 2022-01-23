@@ -1,0 +1,47 @@
+body{
+font-family: 'Autour One';
+    background-color: #99CCFF;
+	color:#8C55AA;
+	}
+	
+form
+{
+margin: auto;
+	padding: 10px;
+	max-width:650px;
+	background-color: #8C55AA;
+	text-align: center;
+} 
+div
+{
+	width: 400px;
+	height: 40px;
+	text-align: center;
+}
+button
+{
+	background-color: tomato;
+	color: white;
+	border-color: white;
+	cursor: pointer;
+	padding: 5px;
+	opacity: 0.8;
+}
+
+.update
+{
+	margin: auto;
+	padding: 10px;
+	max-width:650px;
+	background-color: #8C55AA;
+	text-align: center;
+}
+
+.input
+{
+	margin: auto;
+	padding: 10px;
+	max-width:650px;
+	background-color: #8C55AA;
+	text-align: center;
+}

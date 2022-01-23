@@ -1,0 +1,301 @@
+* {box-sizing: border-box;}
+
+body{
+    padding: 0px;
+    margin: 0;
+    font-family: Helvetica;
+	font-family: 'Autour One';
+	background-color: #99CCFF;
+	box-sizing: contain;
+	
+}
+
+#content{
+    width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#bg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-image: url(../img/sample.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+}
+
+#bg-overlay{
+	width: 100%;
+	height: 100%;
+	background-color: #99CCFF;
+	position: fixed;
+	opacity: 80%;
+}
+
+#admin-page-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: #f1f1f1;
+    box-shadow: 5px 5px 50px 2px #99CCFF;
+}
+
+#admin-page-header > h1{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+#admin-action{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.action{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f1f1f1;
+    font-size: 1.2vw;
+    border-radius: 10px;
+    border: solid 2px #f1f1f1;
+    margin: 10px;
+    padding: 5px;
+    flex: 1;
+    transition: background-color 0.5s ease;
+    transition: color 0.5s ease;
+    transition: border 0.5 ease;
+    transition: box-shadow 0.5s ease;
+    max-width: 20%;
+    cursor: pointer;
+}
+
+.action-disabled{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.2vw;
+    border-radius: 10px;
+    border: solid 2px #FFFFFF;
+    margin: 10px;
+    padding: 5px;
+    flex: 1;
+    transition: box-shadow 0.5s ease;
+    max-width: 20%;
+    cursor: context-menu;
+}
+
+.action:hover{
+    background-color: #ADD8E6;
+    color: rgba(255,255,255,1);
+    box-shadow: 5px 5px 50px 2px #99CCFF;
+}
+
+.action-disabled:hover{
+    box-shadow: 5px 5px 50px 2px #99CCFF;
+}
+
+#forms{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-create-items, #form-view-items, #form-delete-items, #form-update-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: #8C55AA;
+    padding: 3vw;
+    padding-top: 1vw;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 2px #a797b0;
+    margin-bottom: 2%;
+    max-width: 30%;
+}
+
+#form-create-items > p, #form-view-items > p, #form-delete-items > p, #form-update-items > p{font-size: 1.6vw;}
+
+#form-view-items, #form-delete-items, #form-update-items{
+    display: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.field-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /*border:1px solid black;*/
+}
+
+.field-gender-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.field-gender-column p{
+    font-size: 1.5vw;
+    margin: 0%;
+}
+
+.field-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 10px;
+}
+
+textarea{resize: none;}
+
+input, select{
+    font-family: Helvetica;
+    background-color: #F0F0F0;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 1.5vw;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+}
+
+input:focus, select:focus{outline: none;}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input:disabled{background-image: radial-gradient(#F0F0F0,#989898);}
+
+input[type=radio]{
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: #F0F0F0;
+}
+
+button{
+    display: flex;
+	color: black;
+    cursor: pointer;
+    font-size: 1.5vw;
+	border-radius: 10px;
+	border-style: none;
+	border: solid 2px white;
+    background-color: rgba(0,0,0,0);
+    padding: 0.4vw;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover{
+    background-color: #DDA0DD;
+	color: white;
+}
+
+button:focus{
+    outline: none;
+}
+
+#update-form{
+    display: none;
+}
+
+
+#create-item-modal-bg, #view-item-modal-bg, #delete-item-modal-bg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(45,50,45,0.5);
+    display: none;
+}
+
+#create-item-modal, #view-item-modal, #delete-item-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: #9f96a3;
+    box-shadow: 5px 5px 50px 2px #6c537a;
+    padding: 20px;
+    border-radius: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position:fixed;
+    max-width: 35%;
+}
+
+#create-item-modal > p, #view-item-modal > p, #delete-item-modal > p{
+    font-size: 1.7vw;
+}
+
+#create-item-modal > button, #view-item-modal > button, #delete-item-modal > button{
+    display: inline-flex;
+	color: black;
+    cursor: pointer;
+    font-size: 1.5vw;
+	border-radius: 10px;
+	border-style: none;
+	border: solid 2px white;
+    background-color: rgba(0,0,0,0);
+    padding: 0.4vw;
+	justify-content: center;
+}
+
+#not-delete-item-modal-button{
+    margin-top: 20px;
+}
+
+#not-found-delete-button{
+    display: none;
+}
+
+#create-item-modal > button:hover, #view-item-modal > button:hover, #delete-item-modal > button:hover{
+    background-color: #a797b0;
+	color: white;
+}
+
+#create-item-modal > button:focus, #view-item-modal > button:focus, #delete-item-modal > button:focus{
+    outline: none;
+}
+       /* Style the footer */
+footer {
+  
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  
+}

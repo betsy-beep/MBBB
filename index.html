@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="js/login.js"></script>
+
+  <title>Sign in</title>
+  <script type="text/javascript">
+  function myFunction() {
+  var x = document.getElementById("psw");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}</script>
+
+</head>
+
+<body>
+
+  
+  <div class="main">
+    <p class="sign" align="center">LOGIN</p>
+    <form  name="myform" id="myform"   onsubmit="return validateLogin()" method="POST" autocomplete="on" action="login-process.php">
+
+      <input class="matricNo" type="text" placeholder="matricNo" name="matricNo" id="matricNo" >
+      <input class="pass" type="password" placeholder="password" name="psw" id="psw" >
+      <center><input type="checkbox" onClick="myFunction()" style="width:10px"; >Show </center><br>
+      <button type="submit" class="submit" name="loginButton" align="center">Log In</button>
+      <center><a href="glogin.php"><p class="forgot" id="guest">guest</p></a href="#"><a href= "AdminLogin.php"> <p class="forgot" id="guest">Admin</p></a ></center>
+          
+      <p class="forgot" id="register"  align="center">not a user yet?<a href="register.php">click here</a></p>
+            
+    </div>
+     </form>
+</body>
+
+</html>

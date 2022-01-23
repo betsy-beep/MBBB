@@ -1,0 +1,4 @@
+username and password for admin
+
+username: Admin
+password: P@s&42
